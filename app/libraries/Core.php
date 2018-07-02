@@ -3,6 +3,7 @@
 /************************************************
  * Application Main or Core Class
  * Create URL and load necessary files
+ * Redirect to Controller > Method > Prams
  */
 
  class Core {
@@ -19,10 +20,10 @@
      * Instantiate the controllers
      * 
      ***********************************************/
-     // 
+     
     public function __construct(){
         
-      // print_r($this->getUrl());
+      
        $url = $this->getUrl(); 
 
         if(file_exists('../app/controllers/' . ucwords($url[0]) . '.php')){
@@ -33,7 +34,7 @@
        require_once '../app/controllers/' .$this->currentController . '.php';        
        $this->currentController = new $this->currentController;
 
-       //Check Method
+       //Check Method exists
 
        if(isset($url[1])){
            if(method_exists($this->currentController, $url[1])){
