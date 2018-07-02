@@ -1,12 +1,19 @@
 <?php
 
-class Posts {
+class Posts extends Controller {
 
     public function __construct(){
-        echo "Posts Loaded.....";
+        
     }
 
     public function index(){
-        
+
+    }
+
+    public function about(){
+        $data = [
+            'title' => 'My New Home',
+        ];
+        $this->view('home',  $data);
     }
 }
